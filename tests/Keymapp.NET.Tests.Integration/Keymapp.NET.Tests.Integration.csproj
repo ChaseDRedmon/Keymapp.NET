@@ -9,9 +9,8 @@
     <PackageReference Include="NUnit3TestAdapter"/>
     <PackageReference Include="Shouldly"/>
     <PackageReference Include="Grpc.Net.Client"/>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Keymapp.NET\Keymapp.NET.csproj"/>
+    <ProjectReference Include="..\..\src\Keymapp.NET\Keymapp.NET.csproj" />
   </ItemGroup>
 </Project>
