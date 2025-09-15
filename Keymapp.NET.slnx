@@ -19,6 +19,7 @@
     <File Path="README.md" />
     <File Path="license.md" />
     <File Path="nuget.config" />
+    <File Path=".github\workflows\release.yml" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src\Keymapp.NET\Keymapp.NET.csproj" Type="Classic C#">

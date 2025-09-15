@@ -223,14 +223,15 @@ public sealed class KeymappApi : IKeymappApi
     // Explicit constructor for automatic connection
     public KeymappApi(GrpcChannel channel)
     {
-        ArgumentNullException.ThrowIfNull(channel);
+        Guard.ThrowIfNull(channel);
+        
         _client ??= new KeyboardService.KeyboardServiceClient(channel);
         _lazyConnect = new Lazy<ValueTask>(() => ConnectAsync(channel));
     }
 
     public async ValueTask ConnectAsync(GrpcChannel channel, CancellationToken ct = default)
     {
-        ArgumentNullException.ThrowIfNull(channel);
+        Guard.ThrowIfNull(channel);
 
         try
         {
