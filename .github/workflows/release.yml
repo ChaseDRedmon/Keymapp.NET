@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04   # ✅ use Ubuntu 20.04 for .NET 5 support
 
     steps:
       - name: Checkout code
@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '5.0.x' # Or your target version
+          dotnet-version: '5.0.x'
 
       - name: Extract version from tag
         id: get_version
@@ -31,7 +31,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test_results.trx"
+        run: dotnet test --configuration Release --no-build
 
       - name: Pack NuGet package
         run: dotnet pack --configuration Release --no-build -o ./artifacts /p:PackageVersion=${{ env.PACKAGE_VERSION }}
